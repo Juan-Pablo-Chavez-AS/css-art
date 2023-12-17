@@ -1,0 +1,204 @@
+:root {
+    --wall-color: #333327;
+    --pillar-color: #494742;
+    --pillar-color2: #3d3c34;
+    --sky-color: #a0d7ba;
+}
+
+body {
+    background-image: url("firelink-shire-sketch.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-color: var(--sky-color);
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.left-most-wall {
+    background-color: var(--wall-color);
+    width: 13vw;
+    height: 40vh;
+    position: absolute;
+    left: -10px;
+    top: 25vh;
+    transform: rotateY(20deg) rotateZ(-5deg);
+    clip-path: polygon(
+        100% 100%,
+        0 100%,
+        0 16%,
+        22% 14%,
+        20% 20%,
+        100% 10%
+    );
+    border: 0.2vh solid black;
+    /* transition: all 0.5s linear; */
+    /* opacity: 0.7; */
+    z-index: 6;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.left-pillar {
+    background-color: var(--pillar-color);
+    width: 6vw;
+    height: 58vh;
+    position: relative;
+    left: 11.4vw;
+    top: 5.5vh;
+    transform: rotateY(20deg) rotateZ(-5deg);
+    border: 0.2vh solid black;
+    /* opacity: 0.7; */
+}
+
+.left-pillar-depth {
+    background-color: var(--pillar-color);
+    width: 6vw;
+    height: 23vh;
+    position: absolute;
+    left: -4vw;
+    top: -5px;
+    transform: rotateY(-70deg);
+    border: 0.2vh solid black;
+    /* opacity: 0.7; */
+}
+
+.left-wall {
+    background-color: var(--wall-color);
+    width: 22vw;
+    height: 62vh;
+    position: absolute;
+    left: 17vw;
+    top: -1vh;
+    transform-origin: left;
+    transform: rotateY(-10deg) rotateZ(-5deg);
+    clip-path: polygon(
+        100% 100%,
+        0 100%,
+        0 5.1%,
+        65% 18%,
+        90% 38%,
+        100% 40%
+    );
+    z-index: 5;
+    border: 0.1vh solid black;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s linear; */
+}
+
+.window {
+    background-color: var(--sky-color);
+    transform: rotateY(-10deg) rotateZ(4deg);
+    width: 5vw;
+    height: 17vh;
+    position: absolute;
+    border: 0.1vh solid black;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    box-shadow:
+        inset -0.6vh 0.6vh 2vh 0 black,
+        inset -0.6vh -0.6vh 3vh 1vh black;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s linear; */
+}
+
+.window-left {
+    bottom: 37%;
+    left: 50%;
+    border: 0.1vh solid black;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s linear; */
+}
+
+.window-center {
+    height: 25vh;
+    left: 18%;
+    bottom: 10%;
+    border: 0.1vh solid black;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s linear; */
+}
+
+.window-right {
+    height: 25vh;
+    left: 75%;
+    bottom: 10%;
+    border: 0.1vh solid black;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s linear; */
+}
+
+.center-pillar {
+    background-color: var(--pillar-color2);
+    width: 6vw;
+    height: 45vh;
+    position: absolute;
+    left: 39vw;
+    top: 12vh;
+    transform: rotateY(15deg) rotateZ(-3deg) scaleX(1.1);
+    border: 0.2vh solid black;
+    /* opacity: 0.7; */
+    z-index: 4;
+}
+
+.brick-line-horizontal {
+    width: 100%;
+    height: 20%;
+    border: 0.2vh solid black;
+    /* background-color: blue; */
+}
+
+.center-wall {
+    background-color: var(--wall-color);
+    width: 54.9vw; /* 34 to add tree */
+    height: 33vh;
+    position: absolute;
+    left: 45vw;
+    top: 23vh;
+    transform-origin: left;
+    clip-path: polygon(
+        100% 100%,
+        0% 100%,
+        0% 0%,
+        4% 10%,
+        4% 40%,
+        16% 40%,
+        16% 23%,
+        29% 35%,
+        31.5% 60%,
+        43% 75%,
+        100% 82%
+    );
+    z-index: 3;
+    border: 0.1vh solid black;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s linear; */
+}
+
+.floor {
+    /* background: linear-gradient(180deg, #d1c177 0%, #796f44 100%); */
+    /* background-image: repeating-conic-gradient(
+        from 0deg,
+        #d1c177 0deg,
+        #796f44 0.5deg,
+        #655d38 0.5deg,
+        #d1c177 1deg
+    ); */
+    background: repeating-radial-gradient(
+        farthest-corner,
+        #d1c177 30%,
+        #796f44 40%,
+        #655d38 100%
+    );
+    position: fixed;
+    top: 50vh;
+    width: 100%;
+    height: 50vh;
+    z-index: -1;
+    opacity: 0.5;
+}
