@@ -184,20 +184,19 @@ body {
 
 .center-wall {
     background-color: var(--wall-color);
-    width: 54.867vw; /* 34 to add tree */
+    width: 60vw; /* 34 to add tree */
     height: 33vh;
-    position: absolute;
+    position: fixed;
     left: 45vw;
     top: 23vh;
-    transform-origin: left;
     clip-path: polygon(
         100% 100%,
         0% 100%,
         0% 0%,
         4% 10%,
         4% 40%,
-        16% 40%,
-        16% 23%,
+        12% 40%,
+        12% 23%,
         29% 35%,
         31.5% 60%,
         43% 75%,
@@ -210,14 +209,6 @@ body {
 }
 
 .floor {
-    /* background: linear-gradient(180deg, #d1c177 0%, #796f44 100%); */
-    /* background-image: repeating-conic-gradient(
-        from 0deg,
-        #d1c177 0deg,
-        #796f44 0.5deg,
-        #655d38 0.5deg,
-        #d1c177 1deg
-    ); */
     background: repeating-radial-gradient(
         farthest-corner,
         #d1c177 30%,
@@ -229,7 +220,36 @@ body {
     width: 100%;
     height: 50vh;
     z-index: -1;
+    /* opacity: 0.5; */
+}
+
+.bonfire {
+    position: absolute;
+    left: 38%;
+    top: 95%;
+    width: 50vh;
+    height: 40vh;
+    border-radius: 50%;
+    background-image: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 166, 0, 0.487) 0%,
+        rgba(255, 166, 0, 0.262) 100%
+    );
+    animation: slight-pulse 2s cubic-bezier(.47,2,.55,-1.41) infinite;
     opacity: 0.5;
+    z-index: 6;
+}
+
+@keyframes slight-pulse {
+    0% {
+        transform: scale(0.8) rotateX(60deg);
+    }
+    50% {
+        transform: scale(1) rotateX(60deg);
+    }
+    100% {
+        transform: scale(0.8) rotateX(60deg);
+    }
 }
 
 .circle,
