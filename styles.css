@@ -3,7 +3,7 @@
     --pillar-color: #494742;
     --pillar-color2: #3d3c34;
     --sky-color: #a0d7ba;
-    --size: 50vh;
+    --size: 45vh;
     --s: calc(var(--size) / 6);
     --bor: calc(var(--size) / 40);
     --boxShadow: calc(var(--size) / 12);
@@ -160,8 +160,11 @@ body {
     width: 100%;
     height: 20%;
     border: 0.2vh solid black;
-    box-shadow: 0 -1vh 0.1vh rgba(0, 0, 0, 0.276);
     /* background-color: blue; */
+}
+
+.brick-line-horizontal:not(:nth-child(1)) {
+    box-shadow: 0 -1vh 0.1vh rgba(0, 0, 0, 0.276);
 }
 
 .brick-line-vertical {
@@ -209,11 +212,10 @@ body {
 }
 
 .floor {
-    background: repeating-radial-gradient(
-        farthest-corner,
-        #d1c177 30%,
-        #796f44 40%,
-        #655d38 100%
+    background: radial-gradient(
+        #eaa121,
+        #b45d00 45%,
+        #b86409 80%
     );
     position: fixed;
     top: 50vh;
@@ -230,13 +232,9 @@ body {
     width: 50vh;
     height: 40vh;
     border-radius: 50%;
-    background-image: radial-gradient(
-        circle at 50% 50%,
-        rgba(255, 166, 0, 0.487) 0%,
-        rgba(255, 166, 0, 0.262) 100%
-    );
+    background-color: yellow;
     animation: slight-pulse 2s cubic-bezier(.47,2,.55,-1.41) infinite;
-    opacity: 0.5;
+    opacity: 0.25;
     z-index: 6;
 }
 
