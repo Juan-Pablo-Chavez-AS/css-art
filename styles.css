@@ -10,7 +10,7 @@
 }
 
 body {
-    /* background-image: url("firelink-shire-sketch.jpeg"); */
+    background-image: url("firelink-shire-sketch.jpeg");
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     background-color: var(--sky-color);
@@ -107,6 +107,7 @@ body {
     box-shadow:
         inset -1rem 0.1rem 1rem 0 var(--wall-color),
         inset -1rem -0.1rem 0.3rem 0.5rem black;
+        z-index: 1;
     /* opacity: 0.7; */
     /* transition: all 0.5s linear; */
 }
@@ -146,20 +147,44 @@ body {
     top: 12vh;
     transform: rotateY(15deg) rotateZ(-3deg) scaleX(1.1);
     border: 0.2vh solid black;
+    border-top-right-radius: 15%;
+    border-top-left-radius: 10%;
+    overflow: hidden;
     /* opacity: 0.7; */
     z-index: 4;
 }
 
 .brick-line-horizontal {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 20%;
     border: 0.2vh solid black;
+    box-shadow: 0 -1vh 0.1vh rgba(0, 0, 0, 0.276);
     /* background-color: blue; */
+}
+
+.brick-line-vertical {
+    width: 33%;
+    height: 100%;
+    border: 0.1vh solid black;
+    box-shadow: 0 0 4vw black;
+    /* background-color: blue; */
+}
+
+.left-most-wall > .brick-line-horizontal {
+    height: 25%;
+}
+
+.left-wall > .brick-line-horizontal,
+.left-most-wall > .brick-line-horizontal {
+    transform: rotateY(-10deg) translateX(-0.1vw);
+    z-index: 0;
 }
 
 .center-wall {
     background-color: var(--wall-color);
-    width: 54.9vw; /* 34 to add tree */
+    width: 54.867vw; /* 34 to add tree */
     height: 33vh;
     position: absolute;
     left: 45vw;
@@ -215,7 +240,6 @@ body {
     transform: translate(-50%, -50%);
     width: var(--size);
     height: var(--size);
-    /* filter: url(#wavy) blur(0.05vh); */
 }
 
 .inner-circle {
