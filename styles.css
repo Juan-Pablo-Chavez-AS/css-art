@@ -3,7 +3,7 @@
     --pillar-color: #494742;
     --pillar-color2: #3d3c34;
     --sky-color: #a0d7ba;
-    --size: 45vh;
+    --size: 40vh;
     --s: calc(var(--size) / 6);
     --bor: calc(var(--size) / 40);
     --boxShadow: calc(var(--size) / 12);
@@ -257,7 +257,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 7;
+    animation: depth 1.5s ease-out infinite alternate;
+}
+
+@keyframes depth {
+    0% {
+        z-index: 6;
+        opacity: 1;
+    }
+    100% {
+        z-index: 8;
+        opacity: 0.7;
+    }
 }
 
 .fire-row {
@@ -284,6 +295,11 @@ body {
     margin-bottom: -50%;
 }
 
+.fire-row:nth-child(2n) {
+    margin-left: 4%;
+    z-index: 0;
+}
+
 .fire-base {
     position: absolute;
     left: 38%;
@@ -293,7 +309,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
+    z-index: 8;
 }
 
 .fire-no-animation {
@@ -334,8 +350,7 @@ body {
     width: 8vh;
     height: 32vh;
     transform: rotateZ(-15deg) rotateY(40deg);
-    z-index:6;
-    /* background-color: white; */
+    z-index:8;
 }
 
 .sword-handle-tip {
@@ -377,7 +392,7 @@ body {
 .inner-circle {
     position: absolute;
     left: 65%;
-    top: 40%;
+    top: 35%;
     transform: translate(-50%, -50%);
     width: var(--size);
     height: var(--size);
