@@ -222,28 +222,28 @@ body {
     width: 100%;
     height: 50vh;
     z-index: -1;
-    /* opacity: 0.5; */
 }
 
 .bonfire-light {
     position: absolute;
-    left: 38%;
-    top: 95%;
-    width: 50vh;
-    height: 40vh;
+    left: 34%;
+    top: 78%;
+    width: 70vh;
+    height: 60vh;
     border-radius: 50%;
-    background-color: rgba(255, 255, 0, 0.35);
+    background-color: #f0db7d;
     animation: slight-pulse 3s cubic-bezier(.47,2,.55,-1.41) alternate infinite;
-    /* opacity: 0.25; */
-    z-index: 6;
+    opacity: 0.3;
 }
 
 @keyframes slight-pulse {
     0% {
-        transform: scale(0.8) rotateX(70deg);
+        transform: scale(0.6) rotateX(60deg);
+        box-shadow: inset 0 0 0 0 #a08756;
     }
     100% {
         transform: scale(1) rotateX(60deg);
+        box-shadow: inset 0 0 1vw 2vw #746342;
     }
 }
 
