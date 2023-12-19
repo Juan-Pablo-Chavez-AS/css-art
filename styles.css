@@ -285,6 +285,7 @@ body {
     background: linear-gradient(45deg, rgba(219,64,43,1) 60%, rgba(219,134,43,1) 91%, rgba(255,232,0,0.6783088235294117) 100%);
     width: 3vw;
     height: 3vw;
+    margin-right: -1%;
     border-radius: 50%;
     border-start-end-radius: 0%;
     animation: wiggle 0.5s ease-out infinite alternate;
