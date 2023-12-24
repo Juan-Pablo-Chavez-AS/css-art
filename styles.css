@@ -10,7 +10,7 @@
 }
 
 body {
-    background-image: url("firelink-shire-sketch.jpeg");
+    /* background-image: url("firelink-shire-sketch.jpeg"); */
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     background-color: var(--sky-color);
@@ -254,13 +254,14 @@ body {
 }
 
 .oscar-head {
-    background: rgb(203,203,203);
-    background: radial-gradient(circle, rgba(203,203,203,1) 8%, rgba(171,171,171,1) 84%, rgba(0,0,0,1) 100%);
+    background-color: #cbcbcb;
     border: 0.15vw solid black;
     border-radius: 40%;
-    width: 3vw;
-    height: 6.5vh;
+    width: 3.5vw;
+    height: 7vh;
+    position: relative;
 }
+
 .oscar:hover .oscar-head {
     animation: head-incline 2s linear forwards;
 }
@@ -272,6 +273,65 @@ body {
     100% {
         transform: translateX(-65%) translateY(10%) rotateZ(-15deg);
     }
+}
+
+.faceplate {
+    background-color: #cbcbcb;
+    width: 1.8vw;
+    height: 2.7vh;
+    border: 0.4vh solid black;
+    position: absolute;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 25%;
+    border-end-end-radius: 30%;
+    transform: skewY(-15deg) scaleY(-1);
+    z-index: 11;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.faceplate-1 {
+    transform: scaleX(-1) skewY(-15deg) scaleY(-1);
+    top: 50%;
+    left: -12%;
+}
+
+.faceplate-2 {
+    top: 50%;
+    left: 46%;
+}
+
+.faceplate-detail {
+    background-color: black;
+    width: 10%;
+    height: 70%;
+    border-radius: 50%;
+    z-index: 12;
+}
+
+.oscar-eye {
+    background-color: #000000;
+    width: 2.3vw;
+    height: 2vh;
+    border: 0.3vh solid black;
+    border-radius: 30%;
+    position: absolute;
+    z-index: 10;
+}
+
+.oscar-eye-1 {
+    top: 35%;
+    left: 10%;
+}
+
+.oscar-eye-2 {
+    border-radius: 30%;
+    background-color: #cbcbcb;
+    top: 20%;
+    left: 5%;
+    width: 2.8vw;
+    z-index: 9;
 }
 
 .oscar-body-container {
@@ -420,7 +480,7 @@ body {
     }
 }
 
-.oscar:hover + .bonfire-wave {
+.oscar:hover ~ .bonfire-wave {
     position: absolute;
     left: 34%;
     top: 55%;
