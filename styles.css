@@ -396,12 +396,9 @@ body {
     z-index: -1;
 }
 
-.oscar:hover .oscar-feet-1 {
-    animation: kneel-1 1s 1s linear forwards;
-}
-
+.oscar:hover .oscar-feet-1,
 .oscar:hover .oscar-feet-2 {
-    animation: kneel-1 1s 1s linear forwards;
+    animation: kneel 1s 1s linear forwards;
 }
 
 @keyframes leg-up {
@@ -413,7 +410,7 @@ body {
     }
 }
 
-@keyframes kneel-1 {
+@keyframes kneel {
     0% {
         transform: rotateZ(0deg) translateY(80%) translateX(0%);
         transform-origin: 400% 0%;
