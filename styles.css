@@ -239,7 +239,6 @@ body {
 
 #animation-check:checked  + .oscar {
     animation: oscar-kneel 2s linear forwards;
-    animation-fill-mode: alternate;
 }
 
 @keyframes oscar-kneel {
@@ -518,7 +517,7 @@ body {
     border-radius: 50%;
     background-color: #f0db7d;
     animation: slight-pulse 3s cubic-bezier(.47,2,.55,-1.41) alternate infinite;
-    transition: opacity 2s cubic-bezier(1,-1.4,1,-1.4) 10ms;
+    transition: opacity 2.5s cubic-bezier(1,-1.4,1,-1.4) 10ms;
     opacity: 0;
 }
 
@@ -549,7 +548,7 @@ body {
     align-items: center;
     z-index: 6;
     opacity: 0;
-    transition: opacity 2s cubic-bezier(1,-1.4,1,-1.4) 10ms;
+    transition: opacity 3s cubic-bezier(1,-1.4,1,-1.4) 10ms;
     animation: depth 1.5s ease-out infinite alternate;
 }
 
@@ -627,7 +626,7 @@ body {
     align-items: center;
     z-index: 8;
     opacity: 0;
-    transition: opacity 2s cubic-bezier(1,-1.4,1,-1.4) 1ms;
+    transition: opacity 2.5s cubic-bezier(1,-1.4,1,-1.4) 1ms;
 }
 
 #animation-check:checked ~ .fire-base {
