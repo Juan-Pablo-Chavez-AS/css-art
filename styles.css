@@ -237,8 +237,9 @@ body {
     z-index: 7;
 }
 
-.oscar:hover {
+#animation-check:checked  + .oscar {
     animation: oscar-kneel 2s linear forwards;
+    animation-fill-mode: alternate;
 }
 
 @keyframes oscar-kneel {
@@ -262,7 +263,7 @@ body {
     position: relative;
 }
 
-.oscar:hover .oscar-head {
+#animation-check:checked  + .oscar .oscar-head {
     animation: head-incline 2s linear forwards;
 }
 
@@ -275,11 +276,15 @@ body {
     }
 }
 
+#animation-check {
+    display: none;
+}
+
 .faceplate {
     background-color: #cbcbcb;
     width: 1.8vw;
-    height: 2.7vh;
-    border: 0.4vh solid black;
+    height: 3vh;
+    border: 0.3vh solid black;
     position: absolute;
     border-top-left-radius: 30%;
     border-top-right-radius: 25%;
@@ -352,7 +357,7 @@ body {
     z-index: 0;
 }
 
-.oscar:hover .oscar-body {
+#animation-check:checked  + .oscar .oscar-body {
     animation: body-rotate 2s linear forwards;
 }
 
@@ -385,11 +390,11 @@ body {
     transform: rotateZ(-30deg);
 }
 
-.oscar:hover .oscar-arm-1 {
+#animation-check:checked  + .oscar .oscar-arm-1 {
     animation: arm-rotate-1 2s linear forwards;
 }
 
-.oscar:hover .oscar-arm-2 {
+#animation-check:checked  + .oscar .oscar-arm-2 {
     animation: arm-rotate-2 2s linear forwards;
 }
 
@@ -439,7 +444,7 @@ body {
     z-index: -1;
 }
 
-.oscar:hover .oscar-leg-1 {
+#animation-check:checked  + .oscar .oscar-leg-1 {
     animation: leg-up 2s linear forwards;
 }
 
@@ -456,8 +461,8 @@ body {
     z-index: -1;
 }
 
-.oscar:hover .oscar-feet-1,
-.oscar:hover .oscar-feet-2 {
+#animation-check:checked  + .oscar .oscar-feet-1,
+#animation-check:checked  + .oscar .oscar-feet-2 {
     animation: kneel 1s 1s linear forwards;
 }
 
@@ -480,7 +485,7 @@ body {
     }
 }
 
-.oscar:hover ~ .bonfire-wave {
+#animation-check:checked  + .oscar ~ .bonfire-wave {
     position: absolute;
     left: 34%;
     top: 55%;
@@ -513,6 +518,11 @@ body {
     border-radius: 50%;
     background-color: #f0db7d;
     animation: slight-pulse 3s cubic-bezier(.47,2,.55,-1.41) alternate infinite;
+    transition: opacity 2s cubic-bezier(1,-1.4,1,-1.4) 10ms;
+    opacity: 0;
+}
+
+#animation-check:checked ~ .bonfire-light {
     opacity: 0.3;
 }
 
@@ -537,7 +547,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 6;
+    opacity: 0;
+    transition: opacity 2s cubic-bezier(1,-1.4,1,-1.4) 10ms;
     animation: depth 1.5s ease-out infinite alternate;
+}
+
+#animation-check:checked ~ .fire-pyramid {
+    opacity: 1;
 }
 
 @keyframes depth {
@@ -609,6 +626,12 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 8;
+    opacity: 0;
+    transition: opacity 2s cubic-bezier(1,-1.4,1,-1.4) 1ms;
+}
+
+#animation-check:checked ~ .fire-base {
+    opacity: 1;
 }
 
 .main-fire {
