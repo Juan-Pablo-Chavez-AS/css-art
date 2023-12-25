@@ -21,10 +21,10 @@ body {
 
 .left-most-wall {
     background-color: var(--wall-color);
-    width: 13vw;
+    width: 14vw;
     height: 40vh;
     position: absolute;
-    left: -10px;
+    left: -1.5vw;
     top: 25vh;
     transform: rotateY(20deg) rotateZ(-5deg);
     clip-path: polygon(
@@ -66,10 +66,9 @@ body {
     height: 23vh;
     position: absolute;
     left: -4vw;
-    top: -5px;
+    top: 0;
     transform: rotateY(-70deg);
     border: 0.2vh solid black;
-    /* opacity: 0.7; */
 }
 
 .left-wall {
@@ -105,8 +104,8 @@ body {
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     box-shadow:
-        inset -1rem 0.1rem 1rem 0 var(--wall-color),
-        inset -1rem -0.1rem 0.3rem 0.5rem black;
+        inset -0.8vw 0 0.3vw 0 var(--wall-color),
+        inset -0.6vw -0.2vh 0.5vh 1.3vh black;
         z-index: 1;
     /* opacity: 0.7; */
     /* transition: all 0.5s linear; */
@@ -548,7 +547,7 @@ body {
     align-items: center;
     z-index: 6;
     opacity: 0;
-    transition: opacity 3s cubic-bezier(1,-1.4,1,-1.4) 10ms;
+    transition: opacity 2.7s cubic-bezier(1,-1.4,1,-1.4) 10ms;
     animation: depth 1.5s ease-out infinite alternate;
 }
 
@@ -688,7 +687,7 @@ body {
     width: 10%;
     background-color: maroon;
     margin-top: -1%;
-    border: 1px solid black;
+    border: 0.25px solid black;
 }
 
 .sword-handle-shield {
@@ -696,7 +695,7 @@ body {
     width: 50%;
     background-color: gray;
     border-radius: 25%;
-    border: 1px solid black;
+    border: 0.25px solid black;
 }
 
 .sword-blade {
@@ -706,7 +705,7 @@ body {
     border-end-start-radius: 75%;
     border-start-end-radius: 50%;
     margin-top: -1%;
-    border: 1px solid black;
+    border: 0.25px solid black;
 }
 
 .circle,
