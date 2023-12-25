@@ -2,11 +2,17 @@
     --wall-color: #333327;
     --pillar-color: #494742;
     --pillar-color2: #3d3c34;
+    --scenario-border-width: 0.2vh;
     --sky-color: #a0d7ba;
-    --size: 40vh;
-    --s: calc(var(--size) / 6);
-    --bor: calc(var(--size) / 40);
-    --boxShadow: calc(var(--size) / 12);
+    --light-floor-color: #caba70;
+    --dark-floor-color: #746342;
+    --light-armor-color: #cbcbcb;
+    --sword-border-width: 0.25px;
+    --sun-size: 40vh;
+    --sun-glow-position: calc(var(--sun-size) / 6);
+    --sun-border: calc(var(--sun-size) / 40);
+    --sun-box-shadow: calc(var(--sun-size) / 12);
+    --sun-glow-color: red;
 }
 
 body {
@@ -35,7 +41,7 @@ body {
         20% 20%,
         100% 10%
     );
-    border: 0.2vh solid black;
+    border: var(--scenario-border-width) solid black;
     z-index: 6;
 }
 
@@ -54,7 +60,7 @@ body {
     left: 11.4vw;
     top: 5.5vh;
     transform: rotateY(20deg) rotateZ(-5deg);
-    border: 0.2vh solid black;
+    border: var(--scenario-border-width) solid black;
 }
 
 .left-pillar-depth {
@@ -65,7 +71,7 @@ body {
     left: -4vw;
     top: 0;
     transform: rotateY(-70deg);
-    border: 0.2vh solid black;
+    border: var(--scenario-border-width) solid black;
 }
 
 .left-wall {
@@ -93,35 +99,31 @@ body {
     background-color: var(--sky-color);
     transform: rotateY(-10deg) rotateZ(4deg);
     width: 5vw;
-    height: 17vh;
+    height: 25vh;
     position: absolute;
-    border: 0.1vh solid black;
+    border: var(--scenario-border-width) solid black;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     box-shadow:
-        inset -0.8vw 0 0.3vw 0 var(--wall-color),
-        inset -0.6vw -0.2vh 0.5vh 1.3vh black;
-        z-index: 1;
+    inset -0.8vw 0 0.3vw 0 var(--wall-color),
+    inset -0.6vw -0.2vh 0.5vh 1.3vh black;
+    z-index: 1;
 }
 
 .window-left {
+    height: 17vh;
     bottom: 37%;
     left: 50%;
-    border: 0.1vh solid black;
 }
 
 .window-center {
-    height: 25vh;
     left: 18%;
     bottom: 10%;
-    border: 0.1vh solid black;
 }
 
 .window-right {
-    height: 25vh;
     left: 75%;
     bottom: 10%;
-    border: 0.1vh solid black;
 }
 
 .center-pillar {
@@ -132,7 +134,7 @@ body {
     left: 39vw;
     top: 12vh;
     transform: rotateY(15deg) rotateZ(-3deg) scaleX(1.1);
-    border: 0.2vh solid black;
+    border: var(--scenario-border-width) solid black;
     border-top-right-radius: 15%;
     border-top-left-radius: 10%;
     overflow: hidden;
@@ -144,7 +146,7 @@ body {
     justify-content: center;
     width: 100%;
     height: 20%;
-    border: 0.2vh solid black;
+    border: var(--scenario-border-width) solid black;
 }
 
 .brick-line-horizontal:not(:nth-child(1)) {
@@ -161,7 +163,8 @@ body {
 .left-most-wall > .brick-line-horizontal {
     height: 25%;
 }
-
+/* Using a name like left-wall-horizontal-brick-line
+   was not really more appealing tha nusing this selectors */
 .left-wall > .brick-line-horizontal,
 .left-most-wall > .brick-line-horizontal {
     transform: rotateY(-10deg) translateX(-0.1vw);
@@ -194,9 +197,9 @@ body {
 
 .floor {
     background: radial-gradient(
-        #caba70,
-        #746342 45%,
-        #746342 80%
+        var(--light-floor-color),
+        var(--dark-floor-color) 45%,
+        var(--dark-floor-color) 80%
     );
     position: fixed;
     top: 50vh;
@@ -235,7 +238,7 @@ body {
 }
 
 .oscar-head {
-    background-color: #cbcbcb;
+    background-color: var(--light-armor-color);
     border: 0.15vw solid black;
     border-radius: 40%;
     width: 3.5vw;
@@ -261,7 +264,7 @@ body {
 }
 
 .faceplate {
-    background-color: #cbcbcb;
+    background-color: var(--light-armor-color);
     width: 1.8vw;
     height: 3vh;
     border: 0.3vh solid black;
@@ -296,7 +299,7 @@ body {
 }
 
 .oscar-eye {
-    background-color: #000000;
+    background-color: black;
     width: 2.3vw;
     height: 2vh;
     border: 0.3vh solid black;
@@ -312,7 +315,7 @@ body {
 
 .oscar-eye-2 {
     border-radius: 30%;
-    background-color: #cbcbcb;
+    background-color: var(--light-armor-color);
     top: 20%;
     left: 5%;
     width: 2.8vw;
@@ -352,8 +355,7 @@ body {
 
 .oscar-arm-1,
 .oscar-arm-2 {
-    background: rgb(203,203,203);
-    background: radial-gradient(circle, rgba(203,203,203,1) 8%, rgba(171,171,171,1) 64%);
+    background: var(--light-armor-color);
     width: 1.5vw;
     height: 50%;
     border: 0.1vw solid black;
@@ -406,8 +408,7 @@ body {
 
 .oscar-leg-1,
 .oscar-leg-2 {
-    background: rgb(203,203,203);
-    background: radial-gradient(circle, rgba(203,203,203,1) 8%, rgba(171,171,171,1) 64%);
+    background: var(--light-armor-color);
     width: 1.75vw;
     height: 50%;
     border: 0.1vw solid black;
@@ -430,8 +431,7 @@ body {
 
 .oscar-feet-1,
 .oscar-feet-2 {
-    background: rgb(203,203,203);
-    background: radial-gradient(circle, rgba(203,203,203,1) 8%, rgba(171,171,171,1) 64%);
+    background: var(--light-armor-color);
     width: 100%;
     height: 100%;
     border: 0.1vw solid black;
@@ -513,7 +513,7 @@ body {
     }
     100% {
         transform: scale(1) rotateX(60deg);
-        box-shadow: inset 0 0 1vw 2vw #746342;
+        box-shadow: inset 0 0 1vw 2vw var(--dark-floor-color);
     }
 }
 
@@ -556,8 +556,13 @@ body {
 
 .fire,
 .main-fire {
-    background: rgb(219,64,43);
-    background: linear-gradient(45deg, rgba(219,64,43,1) 60%, rgba(219,134,43,1) 91%, rgba(255,232,0,0.6783088235294117) 100%);
+    background: rgb(219, 64, 43);
+    background: linear-gradient(
+        45deg,
+        rgba(219, 64, 43, 1) 60%,
+        rgba(219, 134, 43, 1) 91%,
+        rgba(255, 232, 0, 0.678) 100%
+    );
     width: 3vw;
     height: 6.5vh;
     margin-right: -1%;
@@ -619,8 +624,6 @@ body {
     margin-left: -2%;
     width: 20%;
     height: 25%;
-    background: rgb(219,64,43);
-    background: linear-gradient(45deg, rgba(219,64,43,1) 60%, rgba(219,134,43,1) 91%, rgba(255,232,0,0.6783088235294117) 100%);
     z-index: 7;
     opacity: 1;
 }
@@ -630,7 +633,7 @@ body {
 }
 
 .fire:nth-child(2n - 1) {
-    animation: wiggle 0.5s ease-out infinite alternate-reverse;
+    animation: wiggle 0.6s ease-out infinite alternate-reverse;
 }
 
 @keyframes wiggle {
@@ -661,7 +664,7 @@ body {
     background-color: gray;
     border-radius: 50%;
     margin: 0px;
-    border: 0.25px solid black;
+    border: var(--sword-border-width) solid black;
 }
 
 .sword-handle {
@@ -669,7 +672,7 @@ body {
     width: 10%;
     background-color: maroon;
     margin-top: -1%;
-    border: 0.25px solid black;
+    border: var(--sword-border-width) solid black;
 }
 
 .sword-handle-shield {
@@ -677,7 +680,7 @@ body {
     width: 50%;
     background-color: gray;
     border-radius: 25%;
-    border: 0.25px solid black;
+    border: var(--sword-border-width) solid black;
 }
 
 .sword-blade {
@@ -687,7 +690,7 @@ body {
     border-end-start-radius: 75%;
     border-start-end-radius: 50%;
     margin-top: -1%;
-    border: 0.25px solid black;
+    border: var(--sword-border-width) solid black;
 }
 
 .black-sun,
@@ -696,57 +699,56 @@ body {
     left: 65%;
     top: 35%;
     transform: translate(-50%, -50%);
-    width: var(--size);
-    height: var(--size);
+    width: var(--sun-size);
+    height: var(--sun-size);
 }
 
 .outer-red-light {
     background-color: black;
     border-radius: 50%;
-    width: calc(var(--size) * (2/3));
-    height: calc(var(--size) * (2/3));
+    width: calc(var(--sun-size) * (2/3));
+    height: calc(var(--sun-size) * (2/3));
 }
 
 .black-sun:before,
 .black-sun:after {
     content: "";
     position: absolute;
-    top: var(--s);
-    left: var(--s);
-    right: var(--s);
-    bottom: var(--s);
+    top: var(--sun-glow-position);
+    left: var(--sun-glow-position);
+    right: var(--sun-glow-position);
+    bottom: var(--sun-glow-position);
     border-radius: 50%;
-    border: var(--bor) solid black;
+    border: var(--sun-border) solid black;
 }
+
 .black-sun:before {
-    box-shadow: 0 0 var(--boxShadow) red;
     animation: move 4s linear infinite;
 }
 
 .black-sun:after {
-    box-shadow: 0 0 calc(var(--bor)/2) red;
+    box-shadow: 0 0 calc(var(--sun-border)/2) var(--sun-glow-color);
 }
 
 @keyframes move {
     0% {
-      box-shadow: 0 0 var(--boxShadow) red;
+      box-shadow: 0 0 var(--sun-box-shadow) var(--sun-glow-color);
       filter: hue-rotate(0deg);
     }
     20% {
-      box-shadow: 0 0 60px red;
+      box-shadow: 0 0 60px var(--sun-glow-color);
     }
-
     40% {
-      box-shadow: 0 0 40px red;
+      box-shadow: 0 0 40px var(--sun-glow-color);
     }
     60% {
-      box-shadow: 0 0 80px red;
+      box-shadow: 0 0 80px var(--sun-glow-color);
     }
     80% {
-      box-shadow: 0 0 100px red;
+      box-shadow: 0 0 100px var(--sun-glow-color);
     }
     100% {
-      box-shadow: 0 0 var(--boxShadow) red;
+      box-shadow: 0 0 var(--sun-box-shadow) var(--sun-glow-color);
       filter: hue-rotate(20deg);
     }
 }
