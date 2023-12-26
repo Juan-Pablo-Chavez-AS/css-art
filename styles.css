@@ -283,11 +283,12 @@ body {
     transform: scaleX(-1) skewY(-15deg) scaleY(-1);
     top: 50%;
     left: -12%;
+    border-left-width: 0;
 }
 
 .faceplate-2 {
     top: 50%;
-    left: 46%;
+    left: 43%;
 }
 
 .faceplate-detail {
@@ -366,6 +367,24 @@ body {
 .oscar-arm-1 {
     z-index: -1;
     transform: rotateZ(30deg);
+}
+
+.oscar-arm-1 > .sword {
+    transform-origin: center 0;
+    transform: rotateZ(85deg);
+}
+
+#animation-check:checked  + .oscar .oscar-arm-1 > .sword {
+    animation: sword-skew 1s 1s linear forwards;
+}
+
+@keyframes sword-skew {
+    0% {
+        transform: rotateZ(85deg) rotateY(0deg) skewX(0deg);
+    }
+    100% {
+        transform: rotateZ(85deg) rotateY(40deg) skewX(25deg);
+    }
 }
 
 .oscar-arm-2 {
@@ -696,11 +715,12 @@ body {
 .black-sun,
 .outer-red-light {
     position: absolute;
-    left: 65%;
-    top: 35%;
+    left: 80%;
+    top: 25%;
     transform: translate(-50%, -50%);
     width: var(--sun-size);
     height: var(--sun-size);
+    z-index: -1;
 }
 
 .outer-red-light {
@@ -708,6 +728,7 @@ body {
     border-radius: 50%;
     width: calc(var(--sun-size) * (2/3));
     height: calc(var(--sun-size) * (2/3));
+    z-index: 1;
 }
 
 .black-sun:before,
@@ -723,32 +744,50 @@ body {
 }
 
 .black-sun:before {
-    animation: move 4s linear infinite;
+    animation: sun-glow 4s linear infinite;
 }
 
 .black-sun:after {
     box-shadow: 0 0 calc(var(--sun-border)/2) var(--sun-glow-color);
 }
 
-@keyframes move {
+@keyframes sun-glow {
     0% {
-      box-shadow: 0 0 var(--sun-box-shadow) var(--sun-glow-color);
+      box-shadow: 0 1vw var(--sun-box-shadow) var(--sun-glow-color);
       filter: hue-rotate(0deg);
     }
     20% {
-      box-shadow: 0 0 60px var(--sun-glow-color);
+      box-shadow: 0 1vw 60px var(--sun-glow-color);
     }
     40% {
-      box-shadow: 0 0 40px var(--sun-glow-color);
+      box-shadow: 0 2vw 40px var(--sun-glow-color);
     }
     60% {
-      box-shadow: 0 0 80px var(--sun-glow-color);
+      box-shadow: 0 2vw 80px var(--sun-glow-color);
     }
     80% {
-      box-shadow: 0 0 100px var(--sun-glow-color);
+      box-shadow: 0 2vw 100px var(--sun-glow-color);
     }
     100% {
-      box-shadow: 0 0 var(--sun-box-shadow) var(--sun-glow-color);
+      box-shadow: 0 1vw var(--sun-box-shadow) var(--sun-glow-color);
       filter: hue-rotate(20deg);
     }
+}
+
+.sun-drip {
+    position: absolute;
+    left: 50%;
+    top: 82%;
+    transform: translateX(-50%);
+    width: 7%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(253, 170, 38) 0%,
+        rgba(255, 242, 225) 50%,
+        rgba(253, 170, 38) 100%);
+    border-radius: 20%;
+    box-shadow:
+        inset 0 0 1vw 0 var(--sun-glow-color),
+        0 0 2vw 0.5vw var(--sun-glow-color);
 }
